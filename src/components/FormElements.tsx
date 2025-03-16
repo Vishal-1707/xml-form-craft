@@ -152,12 +152,18 @@ export const DrawingField: React.FC<{
     if (!canvas) return;
     
     const rect = canvas.getBoundingClientRect();
-    const x = e instanceof MouseEvent 
-      ? e.clientX - rect.left 
-      : e.touches[0].clientX - rect.left;
-    const y = e instanceof MouseEvent 
-      ? e.clientY - rect.top 
-      : e.touches[0].clientY - rect.top;
+    let x: number, y: number;
+    
+    // Check if it's a touch event or mouse event
+    if ('touches' in e) {
+      // Touch event
+      x = e.touches[0].clientX - rect.left;
+      y = e.touches[0].clientY - rect.top;
+    } else {
+      // Mouse event
+      x = e.clientX - rect.left;
+      y = e.clientY - rect.top;
+    }
     
     setCurrentLine([{x, y}]);
   };
@@ -172,12 +178,18 @@ export const DrawingField: React.FC<{
     if (!ctx) return;
     
     const rect = canvas.getBoundingClientRect();
-    const x = e instanceof MouseEvent 
-      ? e.clientX - rect.left 
-      : e.touches[0].clientX - rect.left;
-    const y = e instanceof MouseEvent 
-      ? e.clientY - rect.top 
-      : e.touches[0].clientY - rect.top;
+    let x: number, y: number;
+    
+    // Check if it's a touch event or mouse event
+    if ('touches' in e) {
+      // Touch event
+      x = e.touches[0].clientX - rect.left;
+      y = e.touches[0].clientY - rect.top;
+    } else {
+      // Mouse event
+      x = e.clientX - rect.left;
+      y = e.clientY - rect.top;
+    }
     
     setCurrentLine(prev => [...prev, {x, y}]);
     
