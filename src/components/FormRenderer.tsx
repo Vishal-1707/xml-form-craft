@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { FormDefinition, FormElement, validateFormDefinition } from '@/utils/xmlParser';
-import { FormElementRenderer } from './FormElements';
+import { FormElementRenderer } from './form-elements';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 import { cn } from '@/lib/utils';
